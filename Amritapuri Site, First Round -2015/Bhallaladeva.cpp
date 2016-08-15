@@ -10,16 +10,29 @@ class Ideone
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		Scanner sc=new Scanner(System.in);
-		int n,a,c=0,p;
+		int n,q;
 		n=sc.nextInt();
-		p=n;
-		while(n!=0)
-		{ a=sc.nextInt();
-			if(a%2==0) c++;
-			n--;
-		}
-		if(c>p-c) System.out.print("READY FOR BATTLE");
-		else System.out.print("NOT READY");
+		int[] a=new int[n];
 		
+		for(int i=0;i<n;i++){
+		a[i]=sc.nextInt();
+		} Arrays.sort(a);
+		for(int i=1;i<n;i++)
+		{
+			a[i]+=a[i-1];
+		//System.out.print(a[i]+" ");
+		}
+	q=sc.nextInt();
+		while(q!=0)
+		{ q--;
+		int k;
+		k=sc.nextInt();
+		int p=n/(k+1);
+		if(n%(k+1)!=0) p+=1;
+		p-=1;
+		
+		 System.out.println(a[p]);
+			
+		}
 	}
 }
